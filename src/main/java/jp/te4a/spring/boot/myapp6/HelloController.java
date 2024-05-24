@@ -13,6 +13,7 @@ public class HelloController {//HTTPアクセス(URL)の対応を記述
     BookService bookService;
     @RequestMapping("/")
     public String index(Model model){
+        model.addAttribute("msg","this is setting message");
         return "index";
     }
 

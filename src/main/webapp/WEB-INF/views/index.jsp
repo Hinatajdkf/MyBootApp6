@@ -9,7 +9,7 @@ pageEncoding="UTF-8"%>
         <title>index</title>
     </head>
     <body>
-        <h1>Index</h1>
+        <h1>Index Page</h1>
         <p>this is sample page for Spring Boot!</p>
         <p>${msg}</p>
         <form action="post" action="/post">

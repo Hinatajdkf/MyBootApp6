@@ -4,10 +4,10 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class Mybootapp6Application {
+public class MyBootApp6Application {
 
 	public static void main(String[] args) {//SpringBootのメインクラス
-		SpringApplication.run(Mybootapp6Application.class, args);
+		SpringApplication.run(MyBootApp6Application.class, args);
 	}
 
 }

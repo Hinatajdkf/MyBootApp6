@@ -2,6 +2,7 @@ package jp.te4a.spring.boot.myapp9;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -17,10 +18,9 @@ public class BookService {
 
     //追加処理 データはBookFormで扱う　Repositoryを使うときはBookBeanに入れる
     public BookForm create(BookForm bookForm) {
-        bookForm.setId(bookRepository.getBookId());
         BookBean bookBean = new BookBean();
         BeanUtils.copyProperties(bookForm, bookBean);
-        bookRepository.create(bookBean);
+        bookRepository.save(bookBean);
         return bookForm;
     }
     
@@ -28,14 +28,13 @@ public class BookService {
     public BookForm update(BookForm bookForm){
         BookBean bookBean = new BookBean();
         BeanUtils.copyProperties(bookForm, bookBean);
-        bookRepository.update(bookBean);
+        bookRepository.save(bookBean);
         return bookForm;
     }
 
-    //削除処理
-    public void delete(Integer id){
-        bookRepository.delete(id);
-    }
+    public void delete(Integer id) {
+        bookRepository.deleteById(id);
+    }    
 
     //取得処理(全件)
     public List<BookForm> findAll() {
@@ -52,10 +51,14 @@ public class BookService {
 
     //取得処理(1件)
     public BookForm findOne(Integer id) {
-        BookBean bookBean = bookRepository.findOne(id);
-        BookForm bookForm = new BookForm();
-        BeanUtils.copyProperties(bookBean, bookForm);
-        return bookForm;
+        Optional<BookBean> opt = bookRepository.findById(id);
+        if (opt.isPresent()) {
+            BookForm bookForm = new BookForm();
+            BeanUtils.copyProperties(opt.get(), bookForm);
+            return bookForm;
+        } else {
+            return null; // または適切なエラーハンドリングを行う
+        }
     }
     
 }

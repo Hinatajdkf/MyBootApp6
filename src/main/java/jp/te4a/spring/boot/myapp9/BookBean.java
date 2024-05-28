@@ -3,24 +3,22 @@ package jp.te4a.spring.boot.myapp9;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import javax.persistence.*;
-
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 
 @Entity
-@Table(name="books")
+@Table(name = "books") // 対応するDBのテーブルを指定
 @Data
 @AllArgsConstructor
-@NoArgsConstructor//引数なしコンストラクタ自動生成
-//DB(テーブル)と連携
+@NoArgsConstructor // 引数なしコンストラクタを自動生成
 public class BookBean {
-    @Id
-    @GeneratedValue
-    @Column(nullable = false)
+
+    @Id // フィールドを主キーとしてマーク
+    @GeneratedValue(strategy = GenerationType.IDENTITY) // データベースによって自動インクリメント
     private Integer id;
+
+    @Column(nullable = false) // NOT NULL制約
     private String title;
+
     private String writer;
     private String publisher;
     private Integer price;

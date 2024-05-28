@@ -48,17 +48,14 @@ public class BookService {
             return formList;
         }
     
-
     //取得処理(1件)
     public BookForm findOne(Integer id) {
         Optional<BookBean> opt = bookRepository.findById(id);
-        if (opt.isPresent()) {
-            BookForm bookForm = new BookForm();
+        BookForm bookForm = new BookForm();
+        opt.ifPresent(book -> {
             BeanUtils.copyProperties(opt.get(), bookForm);
-            return bookForm;
-        } else {
-            return null; // または適切なエラーハンドリングを行う
-        }
+        });
+        return bookForm;
     }
     
 }

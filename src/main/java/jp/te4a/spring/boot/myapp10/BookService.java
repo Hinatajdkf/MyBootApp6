@@ -1,4 +1,4 @@
-package jp.te4a.spring.boot.myapp9;
+package jp.te4a.spring.boot.myapp10;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -49,16 +49,14 @@ public class BookService {
         }
     
 
-    //取得処理(1件)
-    public BookForm findOne(Integer id) {
-        Optional<BookBean> opt = bookRepository.findById(id);
-        if (opt.isPresent()) {
-            BookForm bookForm = new BookForm();
-            BeanUtils.copyProperties(opt.get(), bookForm);
-            return bookForm;
-        } else {
-            return null; // または適切なエラーハンドリングを行う
-        }
-    }
+//取得処理(1件)
+public BookForm findOne(Integer id) {
+    Optional<BookBean> opt = bookRepository.findById(id);
+    BookForm bookForm = new BookForm();
+    opt.ifPresent(book -> {
+        BeanUtils.copyProperties(opt.get(), bookForm);
+    });
+    return bookForm;
+}
     
 }

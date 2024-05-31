@@ -13,7 +13,7 @@ public class WriterValidator implements ConstraintValidator<Writer, String>{
 
     @Override
     public boolean isValid(String in, ConstraintValidatorContext cxt){
-        if(in == "東北タロウ"){
+        if(in == ok){
             return true;
         }
         System.out.println(in.equals(ok));

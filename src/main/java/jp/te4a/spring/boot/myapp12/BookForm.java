@@ -1,11 +1,8 @@
-package jp.te4a.spring.boot.myapp11;
+package jp.te4a.spring.boot.myapp12;
 
-import javax.validation.constraints.Min;
-import javax.validation.constraints.NotNull;
-import javax.validation.constraints.Size;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-
+import jakarta.validation.constraints.*;
 
 @Data
 @NoArgsConstructor
@@ -19,6 +16,7 @@ public class BookForm {
 
     //著者 3文字以上 20文字以下
     @Size(min = 3, max = 20)
+    @Writer(ok = "東北タロウ")
     private String writer;
 
     private String publisher;

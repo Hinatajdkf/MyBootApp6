@@ -1,4 +1,4 @@
-package jp.te4a.spring.boot.myapp11;
+package jp.te4a.spring.boot.myapp12;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -48,15 +48,14 @@ public class BookService {
             return formList;
         }
     
-
-//取得処理(1件)
-public BookForm findOne(Integer id) {
-    Optional<BookBean> opt = bookRepository.findById(id);
-    BookForm bookForm = new BookForm();
-    opt.ifPresent(book -> {
-        BeanUtils.copyProperties(opt.get(), bookForm);
-    });
-    return bookForm;
-}
+    //取得処理(1件)
+    public BookForm findOne(Integer id) {
+        Optional<BookBean> opt = bookRepository.findById(id);
+        BookForm bookForm = new BookForm();
+        opt.ifPresent(book -> {
+            BeanUtils.copyProperties(opt.get(), bookForm);
+        });
+        return bookForm;
+    }
     
 }

@@ -1,5 +1,14 @@
 spring:
-    mvc:
-        view:
-            prefix: /WEB-INF/views/
-            suffix: .jsp
+    datasource:
+        url: jdbc:mysql://localhost:3306/teamkadai10db
+        username: springuser
+        password: password
+        driver-class-name: com.mysql.cj.jdbc.Driver
+
+    jpa:
+        hibernate:
+            ddl-auto: update
+        properties:
+            hibernate:
+            dialect: org.hibernate.dialect.MySQL8Dialect
+            '[hibernate.id.new_generator_mappings]': false

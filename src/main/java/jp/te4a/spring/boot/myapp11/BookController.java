@@ -33,14 +33,12 @@ public class BookController {
     }
 
     // /books/createにPOST要求
-    // @Validated エラーチェック　 
-    //BindingResult　エラー有無受取
     @PostMapping(path="create")
-    String create(@Validated BookForm form, BindingResult result, Model model){
-        //エラー発生時は一覧画面に戻す
+    String create(@Validated BookForm form, BindingResult result , Model model){
         if(result.hasErrors()){
             return list(model);
         }
+        
         bookService.create(form);
         return "redirect:/books";
     }
@@ -56,11 +54,11 @@ public class BookController {
 
     // /books/にPOST要求
     @PostMapping(path="edit")
-    String edit(@RequestParam Integer id, @Validated BookForm form, BindingResult result){
-        //エラー発生時は一覧画面に戻す
+    String edit(@RequestParam Integer id, @Validated BookForm form, BindingResult result , Model model){
         if(result.hasErrors()){
-            return editForm(id,form);
+            return editForm(id, form);
         }
+        
         bookService.update(form);
         return "redirect:/books";
     }

@@ -1,4 +1,4 @@
-package jp.te4a.spring.boot.myapp12;
+package jp.te4a.spring.boot.myapp13;
 
 import lombok.Data;
 import lombok.NoArgsConstructor;

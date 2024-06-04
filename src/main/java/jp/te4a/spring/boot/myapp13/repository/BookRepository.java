@@ -1,8 +1,11 @@
-package jp.te4a.spring.boot.myapp13;
+package jp.te4a.spring.boot.myapp13.repository;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
+
+import jp.te4a.spring.boot.myapp13.bean.BookBean;
+
 import java.util.List;
 
 @Repository

@@ -10,7 +10,7 @@ import org.springframework.stereotype.Service;
 
 import jp.te4a.spring.boot.myapp13.bean.UserBean;
 import jp.te4a.spring.boot.myapp13.repository.UserRepository;
-import jp.te4a.spring.boot.myapp13.security.LoginUserDetails;
+import jp.te4a.spring.boot.myapp13.security.LoginUserDetalis;
 
 //ユーザIDからLoginUserDetailsを返す
 @Service
@@ -23,6 +23,6 @@ public class LoginUserDetailsService implements UserDetailsService {
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
         Optional<UserBean> opt = userRepository.findById(username);
         UserBean user = opt.orElseThrow(() -> new UsernameNotFoundException("The requested user is not found."));
-        return new LoginUserDetails(user);
+        return new LoginUserDetalis(user);
     }
 }

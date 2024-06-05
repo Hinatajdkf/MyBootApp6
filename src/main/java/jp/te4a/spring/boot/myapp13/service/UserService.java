@@ -2,7 +2,7 @@ package jp.te4a.spring.boot.myapp13.service;
 
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.crypto.password.Pbkdf2PasswordEncoder;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import jp.te4a.spring.boot.myapp13.bean.UserBean;
@@ -13,11 +13,11 @@ import jp.te4a.spring.boot.myapp13.repository.UserRepository;
 @Service
 public class UserService {
     private final UserRepository userRepository;
-    private final Pbkdf2PasswordEncoder passwordEncoder;
+    private final PasswordEncoder passwordEncoder;
 
     //ユーザ作成時にパスワードをエンコードする
     @Autowired
-    public UserService(UserRepository userRepository, Pbkdf2PasswordEncoder passwordEncoder) {
+    public UserService(UserRepository userRepository, PasswordEncoder passwordEncoder) {
         this.userRepository = userRepository;
         this.passwordEncoder = passwordEncoder;
     }

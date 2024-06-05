@@ -8,6 +8,7 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.crypto.password.Pbkdf2PasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
+import java.lang.CharSequence;
 
 @EnableWebSecurity
 @Configuration
@@ -17,12 +18,15 @@ public class SecurityConfig {
     //CharSequenceSE secret, int saltLength, int iterations, Pbkdf2PasswordEncoder.SecretKeyFactoryAlgorithm secretKeyFactoryAlgorithm
     @Bean
     public PasswordEncoder passwordEncoder() {
-        return new Pbkdf2PasswordEncoder(null,10,10,null);
+        CharSequence secret = "f";
+        return new Pbkdf2PasswordEncoder(secret, 10, 185000, Pbkdf2PasswordEncoder.SecretKeyFactoryAlgorithm.PBKDF2WithHmacSHA1);
     }
+    
 
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         http
+            //全ユーザアクセス可能パス
             .authorizeHttpRequests((requests) -> requests
                 .requestMatchers("/webjars/**", "/css/**").permitAll()
                 .requestMatchers("/loginForm").permitAll()
@@ -31,13 +35,18 @@ public class SecurityConfig {
                 .anyRequest().authenticated()
             )
             .formLogin((form) -> form
+                //ログイン処理URL
                 .loginProcessingUrl("/login")
+                //ログインページURL
                 .loginPage("/loginForm")
+                //ログイン失敗時URL
                 .failureUrl("/loginForm?error")
+                //ログイン成功時URL
                 .defaultSuccessUrl("/books", true)
                 .usernameParameter("username")
                 .passwordParameter("password")
             )
+            //ログアウト時
             .logout((logout) -> logout
                 .logoutRequestMatcher(new AntPathRequestMatcher("/logout"))
                 .logoutSuccessUrl("/loginForm")
@@ -46,28 +55,3 @@ public class SecurityConfig {
         return http.build();
     }
 }
-/*
- * http
- *  全ユーザアクセス可能パス
-    .authorizeHttpRequests((requests) -> requests
-        .requestMatchers("/webjars/**", "/css/**").permitAll()
-        .requestMatchers("/loginForm").permitAll()
-        .requestMatchers("/users").permitAll()
-        .requestMatchers("/users/create").permitAll()
-        .anyRequest().authenticated()
-    )
-    .formLogin((form) -> form
-        .loginProcessingUrl("/login") ログイン処理URL
-        .loginPage("/loginForm")　ログインページURL
-        .failureUrl("/loginForm?error")　ログイン失敗時URL
-        .defaultSuccessUrl("/books", true)　ログイン成功時URL
-        .usernameParameter("username")
-        .passwordParameter("password")
-    )
-    ログアウト時
-    .logout((logout) -> logout
-        .logoutRequestMatcher(new AntPathRequestMatcher("/logout"))
-        .logoutSuccessUrl("/loginForm")
-    );
- * 
- */

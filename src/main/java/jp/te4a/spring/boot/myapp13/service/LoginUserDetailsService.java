@@ -1,7 +1,6 @@
 package jp.te4a.spring.boot.myapp13.service;
 
 import java.util.Optional;
-import java.util.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.AuthorityUtils;

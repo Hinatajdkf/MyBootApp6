@@ -28,7 +28,7 @@ public class UserController {
 
     @GetMapping
     String list(Model model) {
-        return "user/add";
+        return "users/add";
     }
 
     @PostMapping(path = "create")

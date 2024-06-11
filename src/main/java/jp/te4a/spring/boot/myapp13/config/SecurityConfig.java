@@ -4,22 +4,22 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
-import org.springframework.security.crypto.password.Pbkdf2PasswordEncoder;
+//import org.springframework.security.crypto.password.Pbkdf2PasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
-import java.lang.CharSequence;
+//import java.lang.CharSequence;
 
 @EnableWebSecurity
 @Configuration
 public class SecurityConfig {
 
-    // PBKDF2によるパスワード暗号化
+    //パスワード暗号化
     //CharSequenceSE secret, int saltLength, int iterations, Pbkdf2PasswordEncoder.SecretKeyFactoryAlgorithm secretKeyFactoryAlgorithm
     @Bean
     public PasswordEncoder passwordEncoder() {
-        CharSequence secret = "f";
-        return new Pbkdf2PasswordEncoder(secret, 10, 185000, Pbkdf2PasswordEncoder.SecretKeyFactoryAlgorithm.PBKDF2WithHmacSHA1);
+        return new BCryptPasswordEncoder();
     }
     
 
@@ -29,9 +29,10 @@ public class SecurityConfig {
             //全ユーザアクセス可能パス
             .authorizeHttpRequests((requests) -> requests
                 .requestMatchers("/webjars/**", "/css/**").permitAll()
-                .requestMatchers("/loginForm").permitAll()
-                .requestMatchers("/users").permitAll()
+                .requestMatchers("/loginForm", "/users").permitAll()
+                .requestMatchers("/users/add").permitAll()
                 .requestMatchers("/users/create").permitAll()
+                .requestMatchers("/error").permitAll()
                 .anyRequest().authenticated()
             )
             .formLogin((form) -> form

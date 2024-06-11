@@ -10,6 +10,7 @@ import lombok.NoArgsConstructor;
 
 @Data
 @NoArgsConstructor
+@AllArgsConstructor
 @Entity
 @Table(name="users")
 //ユーザ名、パスワードを持つDB用ユーザクラス(DAO)

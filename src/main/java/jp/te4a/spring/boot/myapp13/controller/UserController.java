@@ -25,10 +25,10 @@ public class UserController {
     UserForm setUpForm() {
         return new UserForm();
     }
-
+    
     @GetMapping
     String list(Model model) {
-        return "users/add";
+        return "users/add"; // users/add.html
     }
 
     @PostMapping(path = "create")

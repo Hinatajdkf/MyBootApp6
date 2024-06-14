@@ -1,5 +1,6 @@
 package jp.te4a.spring.boot.myapp13.security;
 
+import java.util.Collection;
 import java.util.List;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.User;

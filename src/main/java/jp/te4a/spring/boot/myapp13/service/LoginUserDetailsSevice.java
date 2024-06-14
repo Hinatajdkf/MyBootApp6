@@ -1,5 +1,6 @@
 package jp.te4a.spring.boot.myapp13.service;
 
+import java.util.Collection;
 import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -18,7 +19,7 @@ public class LoginUserDetailsSevice implements UserDetailsService{
     @Autowired
     UserRepository userRepository;
 
-    
+    //ユーザ名を指定してDBからユーザ情報取得　認証用
     @Override
     public UserDetails loadUserByUsername(String username)throws
     UsernameNotFoundException{
@@ -29,6 +30,5 @@ public class LoginUserDetailsSevice implements UserDetailsService{
         String[] list = {"ROLE_ADMIN","ROLE_USER"};
         return new LoginUserDetails(user,AuthorityUtils.createAuthorityList(list));
     }
-
     
 }

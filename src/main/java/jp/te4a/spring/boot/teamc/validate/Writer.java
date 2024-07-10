@@ -1,4 +1,4 @@
-package jp.te4a.spring.boot.myapp13_1.validate;
+package jp.te4a.spring.boot.teamc.validate;
 
 import java.lang.annotation.Documented;
 import java.lang.annotation.ElementType;

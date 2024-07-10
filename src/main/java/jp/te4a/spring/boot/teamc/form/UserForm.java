@@ -1,4 +1,4 @@
-package jp.te4a.spring.boot.myapp13_1.form;
+package jp.te4a.spring.boot.teamc.form;
 
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;

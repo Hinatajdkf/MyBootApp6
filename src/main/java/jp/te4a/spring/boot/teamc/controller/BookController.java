@@ -1,4 +1,4 @@
-package jp.te4a.spring.boot.myapp13_1.controller;
+package jp.te4a.spring.boot.teamc.controller;
 
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,8 +12,8 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import jp.te4a.spring.boot.myapp13_1.form.BookForm;
-import jp.te4a.spring.boot.myapp13_1.service.BookService;
+import jp.te4a.spring.boot.teamc.form.BookForm;
+import jp.te4a.spring.boot.teamc.service.BookService;
 
 
 //HTTPアクセス(URL)の対応を記述

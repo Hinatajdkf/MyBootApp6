@@ -1,11 +1,11 @@
-package jp.te4a.spring.boot.myapp13_1.security;
+package jp.te4a.spring.boot.teamc.security;
 
 import java.util.Collection;
 //import java.util.List;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.User;
 
-import jp.te4a.spring.boot.myapp13_1.bean.UserBean;
+import jp.te4a.spring.boot.teamc.bean.UserBean;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 

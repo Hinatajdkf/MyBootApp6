@@ -1,4 +1,4 @@
-package jp.te4a.spring.boot.myapp13_1.config;
+package jp.te4a.spring.boot.teamc.config;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
@@ -9,7 +9,7 @@ import org.springframework.security.config.annotation.web.configuration.EnableWe
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
-import jp.te4a.spring.boot.myapp13_1.service.LoginUserDetailsService;
+import jp.te4a.spring.boot.teamc.service.LoginUserDetailsService;
 
 
 @EnableWebSecurity

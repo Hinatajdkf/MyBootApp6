@@ -1,10 +1,10 @@
-package jp.te4a.spring.boot.myapp13_1.repository;
+package jp.te4a.spring.boot.teamc.repository;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
 
-import jp.te4a.spring.boot.myapp13_1.bean.BookBean;
+import jp.te4a.spring.boot.teamc.bean.BookBean;
 
 import java.util.List;
 

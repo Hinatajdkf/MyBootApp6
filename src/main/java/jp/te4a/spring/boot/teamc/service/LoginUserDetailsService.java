@@ -1,4 +1,4 @@
-package jp.te4a.spring.boot.myapp13_1.service;
+package jp.te4a.spring.boot.teamc.service;
 
 import java.util.Collection;
 import java.util.Optional;
@@ -8,9 +8,9 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
-import jp.te4a.spring.boot.myapp13_1.bean.UserBean;
-import jp.te4a.spring.boot.myapp13_1.repository.UserRepository;
-import jp.te4a.spring.boot.myapp13_1.security.LoginUserDetails;
+import jp.te4a.spring.boot.teamc1.bean.UserBean;
+import jp.te4a.spring.boot.teamc.repository.UserRepository;
+import jp.te4a.spring.boot.teamc.security.LoginUserDetails;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.AuthorityUtils;
 

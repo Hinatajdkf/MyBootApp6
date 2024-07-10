@@ -1,4 +1,4 @@
-package jp.te4a.spring.boot.myapp13_1.bean;
+package jp.te4a.spring.boot.teamc.bean;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;

@@ -13,6 +13,7 @@ import org.springframework.web.servlet.ModelAndView;
 public class HelloController {//HTTPアクセス(URL)の対応を記述
     @Autowired
     BookService bookService;
+    
     @RequestMapping("books/list")
     public String index(Model model){
         model.addAttribute("msg","this is setting message");
@@ -27,11 +28,11 @@ public class HelloController {//HTTPアクセス(URL)の対応を記述
         @RequestParam("price")String price){
             ModelAndView mv = new ModelAndView("books/list");
             bookService.save(new BookBean(Integer.valueOf(id),title,writer,publisher,Integer.valueOf(price)));
-            StringBuffer buff = new StringBuffer();
-            for(BookBean bean:bookService.findAll()){
+            //StringBuffer buff = new StringBuffer();
+            /*for(BookBean bean:bookService.findAll()){
                 buff.append("ID"+bean.getId()+"<BR>"+"タイトル"+bean.getTitle()+"<BR>"
                 +"著者"+bean.getWriter()+"<BR>"+"出版社"+bean.getPublisher()+"<BR>"+"価格"+bean.getPrice()+"<BR><HR>");
-            }
+            }*/
             mv.addObject("books", bookService.findAll());
             return mv;
         }

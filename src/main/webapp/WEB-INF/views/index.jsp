@@ -5,14 +5,14 @@ pageEncoding="UTF-8"%>
 
 <html>
     <head>
-        <meta http-equiv="Content-Type" content="test/html; charset=UTF-8">
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>index</title>
     </head>
     <body>
         <h1>Index Page</h1>
         <p>this is sample page for Spring Boot!</p>
         <p>${msg}</p>
-        <form action="post" action="/post">
+        <form action="/post" method="post">
             <table>
                 <tr><td>ID:</td><td><input type="text" name="id"></td></tr>
                 <tr><td>タイトル:</td><td><input type="text" name="title"></td></tr>
@@ -20,7 +20,7 @@ pageEncoding="UTF-8"%>
                 <tr><td>出版社:</td><td><input type="text" name="publisher"></td></tr>
                 <tr><td>価格:</td><td><input type="text" name="price"></td></tr>
             </table>
-            <input type="submit">
+            <input type="submit" value="送信" />
         </form>
     </body>
 </html>
